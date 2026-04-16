@@ -1,0 +1,57 @@
+#pragma once
+#include "box.h"
+box::box(){
+    length=0.0;
+    breadth=0.0;
+    height=0.0;
+
+} 
+box::~box(){
+
+}
+double box::GetVolume(){
+    return length*breadth*height;
+}
+void box::SetLength(double len){
+    length = len;
+}
+void box::Setbreadth(double bre){
+    breadth = bre;
+}
+void box::Setheight(double hei){
+    height = hei;
+}
+box box::operator+(const box& b){
+    box box;
+    box.length= this>length +b.length;
+    box.breadth= this->breadth +b.breadth;
+    box.height= this->height +b.height;//https://learn.microsoft.com/en-us/cpp/cpp/this-pointer?view=msvc-170
+    return box;
+}int main(){
+    box box1;
+    box box2;
+    box box3;
+    double volume = 0.0;
+
+    box1.SetLength(6.0);  
+    box1.Setbreadth(7.0);  
+    box1.Setheight(5.0); 
+    
+    box2.SetLength(12.0);  
+    box2.Setbreadth(13.0);  
+    box2.Setheight(10.0);
+    
+    volume  = box1.GetVolume();
+    cout<< "volume of box1: "<<volume<<endl;
+
+    volume  = box2.GetVolume();
+    cout<< "volume of box2: "<<volume<<endl;
+
+    box3 = box1 +box2;
+
+    volume= box3.GetVolume();
+    volume  = box1.GetVolume();
+    cout<< "volume of box3: "<<volume<<endl;
+
+    return 0;
+}

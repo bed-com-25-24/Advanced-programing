@@ -1,0 +1,21 @@
+#pragma once
+#include <iostream>
+using namespace std;
+
+class box {
+    public:
+        box();
+        box(const double newlength, const double newbreadth, const double newhieght );
+        ~box();
+        double GetVolume();
+        void SetLength(double len);
+        void Setbreadth(double bre);
+        void Setheight(double hei);
+        box operator+(const box& b);
+    private:
+        double length;
+        double breadth;
+        double height;
+    
+
+};
